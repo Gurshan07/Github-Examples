@@ -1,0 +1,17 @@
+name: "Dependent Jobs"
+
+on: ['push']
+
+jobs:
+  job1: 
+    runs-on: macos-latest
+    needs: job1
+    steps:
+    - name: "echo hell0"
+      run: echo "Hello"
+
+  job2:
+    runs-on: windows-latest
+    steps:
+    - name: "echo w0rld"
+      run: echo "W0rld"
